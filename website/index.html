@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Waste Classification Dashboard</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        * { font-family: "Inter", sans-serif; }
+    </style>
+
+    <script type="module" src="./app.js" defer></script>
+</head>
+
+<body class="bg-[#0F172A] text-white min-h-screen flex">
+
+    <!-- SIDEBAR -->
+    <aside class="w-64 bg-[#111827] border-r border-white/10 hidden md:flex flex-col p-6">
+        <h2 class="text-xl font-semibold tracking-wide mb-8">
+            AI Waste Classifier
+        </h2>
+
+        <nav class="flex flex-col gap-3">
+            <!-- Only Dashboard button stays -->
+            <a class="px-4 py-2 rounded-lg bg-blue-600/20 border border-blue-500/20 hover:bg-blue-500/30 transition cursor-pointer">
+                Dashboard
+            </a>
+        </nav>
+
+        <div class="mt-auto text-gray-400 text-sm">
+            © 2024 • Predictive Recycling
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <div class="flex-1 flex flex-col">
+
+        <!-- HEADER -->
+        <header class="sticky top-0 z-50 bg-[#111827]/80 backdrop-blur-lg shadow-xl px-6 py-4 flex justify-between items-center border-b border-white/10">
+
+            <h1 class="text-lg font-semibold tracking-wide">Real-Time Monitoring</h1>
+
+            <!-- Removed Export Result Button -->
+        </header>
+
+        <!-- MAIN GRID -->
+        <main class="grid grid-cols-1 xl:grid-cols-3 gap-8 p-6">
+
+            <!-- CAMERA WRAPPER -->
+            <div class="xl:col-span-2 bg-[#1E293B] rounded-2xl p-4 shadow-xl border border-white/10">
+                <h2 class="text-lg font-medium mb-4">Live Camera Feed</h2>
+
+                <div class="rounded-xl overflow-hidden border border-white/10 shadow-lg h-[68vh]">
+                    <video 
+                        id="webcam-feed"
+                        autoplay
+                        playsinline
+                        muted
+                        class="w-full h-full object-cover"
+                    ></video>
+                </div>
+            </div>
+
+            <!-- PREDICTION PANEL -->
+            <div class="bg-[#1E293B] rounded-2xl p-6 shadow-xl border border-white/10 flex flex-col justify-start">
+
+                <h2 class="text-2xl font-semibold mb-6">Prediction</h2>
+
+                <div id="error-message"
+                     class="hidden text-red-400 bg-red-500/10 border border-red-500/20 px-4 py-3 rounded-lg mb-4">
+                </div>
+
+                <div class="flex items-center gap-3 mb-4">
+                    <div id="status-indicator"
+                         class="w-4 h-4 rounded-full bg-gray-400 animate-pulse">
+                    </div>
+
+                    <p id="prediction-label" class="text-xl text-gray-200">
+                        Initializing...
+                    </p>
+                </div>
+
+                <div class="mt-6">
+                    <div class="flex justify-between mb-1 text-sm text-gray-400">
+                        <span>Confidence</span>
+                        <span id="confidence-percent">0%</span>
+                    </div>
+
+                    <div class="w-full h-3 rounded-full bg-gray-700 overflow-hidden">
+                        <div id="confidence-bar"
+                            class="h-full bg-blue-500 rounded-full transition-all duration-500"
+                            style="width: 0%">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>

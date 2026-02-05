@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+python-multipart
+tensorflow==2.15.0
+opencv-python
+numpy==1.26.4

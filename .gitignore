@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+tfenv/
+*.egg
+*.egg-info/
+dist/
+build/
+.venv/
+
+# Keras/TensorFlow
+*.h5
+*.keras
+saved_model/
+
+# Datasets - assuming 'datasets' folder is large and not meant for Git
+datasets/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# IDEs
+.idea/
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
